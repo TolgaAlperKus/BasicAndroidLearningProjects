@@ -1,6 +1,6 @@
 package com.tolgaalperkus.kotlinoopproject
 
-class User {
+class User : People{
 
     //property
     var name : String? = null
