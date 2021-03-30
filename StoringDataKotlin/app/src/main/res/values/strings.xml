@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StoringDataKotlin</string>
+    <string name="activity_main_age_textview_text" />
+    <string name="activity_main_age_textview_hint">Age...</string>
+    <string name="activity_main_age_edittext_hint">Age...</string>
+    <string name="activity_main_age_textview_string">Your Age :</string>
+    <string name="activity_main_save_button_text">Save</string>
+    <string name="activity_main_delete_button_text">Delete</string>
+</resources>

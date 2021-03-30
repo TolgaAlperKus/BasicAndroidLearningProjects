@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">KotlinLandmarkBook</string>
+    <string name="activity_details_landmark_name_textview">Landmark Name:</string>
+    <string name="activity_details_landmark_imageview_content_text">Landmark Picture</string>
+    <string name="list_row_item_name_textview_text">Item Name</string>
+</resources>

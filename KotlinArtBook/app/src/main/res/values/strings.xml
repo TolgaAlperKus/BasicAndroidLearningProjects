@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KotlinArtBook</string>
+    <string name="details_activity_select_image_imageview_content_description">"Select Image Pic "</string>
+    <string name="details_activity_art_name_edittext_hint">Art Name ...</string>
+    <string name="details_activity_painter_name_edittext_hint">Painter Name ...</string>
+    <string name="details_activity_year_edittext_hint">Year...</string>
+    <string name="details_activity_save_button_text">Save</string>
+    <string name="add_art_item_text">Add Art</string>
+</resources>

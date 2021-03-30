@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KotlinCountDown</string>
+    <string name=".">"Time : "</string>
+    <string name="activity_main_countdown_textview_text">Left :</string>
+</resources>

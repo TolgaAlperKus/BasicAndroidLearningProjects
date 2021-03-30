@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">KotlinRunnables</string>
+    <string name="activity_main_countdown_textview_text">Time : 0</string>
+    <string name="activity_main_stop_button">Stop</string>
+    <string name="activity_main_start_button">Start</string>
+</resources>

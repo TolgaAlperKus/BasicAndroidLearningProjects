@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KotlinIntent</string>
+    <string name="activity_main_username_edittext_hint">Username ...</string>
+    <string name="activity_main_name_edittext_hint">Name...</string>
+    <string name="activity_main_next_button_text">next</string>
+    <string name="activity_next_username_textview_text">Username:</string>
+    <string name="activity_next_name_textview_text">Name:</string>
+</resources>

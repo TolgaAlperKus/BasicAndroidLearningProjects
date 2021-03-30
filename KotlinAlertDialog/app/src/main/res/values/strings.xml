@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotlinAlertDialog</string>
+    <string name="activity_main_alert_button_text">Alert Button</string>
+</resources>

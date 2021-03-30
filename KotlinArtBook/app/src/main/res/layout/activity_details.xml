@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
+
+    <ImageView
+        android:id="@+id/details_activity_select_image_imageview"
+        android:layout_width="308dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/details_activity_select_image_imageview_content_description"
+        android:onClick="selectImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/selectimage" />
+
+    <Button
+        android:id="@+id/details_activity_save_button"
+        android:layout_width="156dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="save"
+        android:text="@string/details_activity_save_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_activity_year_edittext"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/details_activity_year_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/details_activity_year_edittext_hint"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/details_activity_painter_name_edittext"
+        app:layout_constraintStart_toStartOf="@+id/details_activity_painter_name_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/details_activity_painter_name_edittext" />
+
+    <EditText
+        android:id="@+id/details_activity_painter_name_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/details_activity_painter_name_edittext_hint"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/details_activity_art_name_edittext"
+        app:layout_constraintStart_toStartOf="@+id/details_activity_art_name_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/details_activity_art_name_edittext" />
+
+    <EditText
+        android:id="@+id/details_activity_art_name_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="@string/details_activity_art_name_edittext_hint"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_activity_select_image_imageview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
