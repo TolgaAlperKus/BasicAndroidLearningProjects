@@ -11,11 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
 public class DeleteUserFragment extends Fragment {
 
     private EditText userIdET;
     private Button deleteBtn;
 
+    CompositeDisposable compositeDisposable;
 
     public DeleteUserFragment() {
     }
@@ -28,15 +35,29 @@ public class DeleteUserFragment extends Fragment {
         userIdET = view.findViewById(R.id.delete_user_edittext);
         deleteBtn = view.findViewById(R.id.delete_button);
 
+
+
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                compositeDisposable = new CompositeDisposable();
                 int id = Integer.parseInt(userIdET.getText().toString());
                 User user = new User ();
                 user.setId(id);
-                MainActivity.myAppDatabase.myDao().deleteUser(user);
-                Toast.makeText(getActivity(), "User Deleted", Toast.LENGTH_SHORT).show();
-                userIdET.setText("");
+                compositeDisposable = new CompositeDisposable();
+
+                compositeDisposable.add(MainActivity.myAppDatabase.myDao().deleteUser(user).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action() {
+                    @Override
+                    public void run() throws Exception {
+                        Toast.makeText(getActivity(), "User Deleted", Toast.LENGTH_SHORT).show();
+                        userIdET.setText("");
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }));
             }
         });
 

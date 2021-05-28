@@ -11,9 +11,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import io.reactivex.Completable;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
 public class AddUserFragment extends Fragment {
     private EditText userIdET,userNameET, userEmailET;
     private Button bnSave;
+    CompositeDisposable compositeDisposable;
 
     public AddUserFragment() {
 
@@ -38,11 +48,22 @@ public class AddUserFragment extends Fragment {
                 user.setId(userId);
                 user.setName(userName);
                 user.setEmail(userEmail);
-                MainActivity.myAppDatabase.myDao().addUser(user);
-                Toast.makeText(getActivity(), "User Added", Toast.LENGTH_SHORT).show();
-                userIdET.setText("");
-                userNameET.setText("");
-                userEmailET.setText("");
+                compositeDisposable = new CompositeDisposable();
+
+                compositeDisposable.add(MainActivity.myAppDatabase.myDao().addUser(user).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action() {
+                    @Override
+                    public void run() throws Exception {
+                        Toast.makeText(getActivity(), "User Added", Toast.LENGTH_SHORT).show();
+                        userIdET.setText("");
+                        userNameET.setText("");
+                        userEmailET.setText("");
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }));
 
             }
         });
